@@ -56,6 +56,11 @@ body {
     text-shadow: 0 0 5px blue,
     0 0 25px blue, 0 0 50px blue,
     0 0 100px blue;
+} 
+#menu-icon{
+    font-size: 2rem;
+    color: cyan;
+    display: none;
 }
 
 .home {
@@ -208,7 +213,7 @@ body {
 }
 .about-text p{
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.4;
     margin-bottom: 4rem;
     margin-right: 3rem;
@@ -322,19 +327,72 @@ body {
 .services-list div:hover{
     transform: translateY(-10px);
 }
-.section1 {
-    position: center;
-    padding: 60px;
+
+.test-box{
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+.test-box img{
+    width: 150px;
+    border-radius: 50%;
+    border: 3px solid ;
+    box-shadow: 0 0 5px lightseagreen,
+    0 0 25px lightseagreen, 0 0 50px lightseagreen,
+    0 0 100px lightseagreen, 0 0 200px lightseagreen;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.test-item{
+    min-height: 500px;
+    max-width: 450px;
+    border-radius: 10px;
+    margin: 0 2rem;
+    padding: 20px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+    box-shadow: 0 0 5px cyan,
+        0 0 25px cyan;  
+}
+.test-item:hover{
+    border: 3px solid white;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 5px lightseagreen,
+    0 0 25px lightseagreen, 0 0 50px lightseagreen,
+    0 0 100px lightseagreen, 0 0 200px lightseagreen;
+}
+
+#star{
+    font-size: 2rem;
+}
+
 .contact{
-    padding: 64;  
+    padding: 64px;  
 }
 .contact h2{ 
+    margin-bottom: 5px;
+    color: white;
     font-size: 60px;
     text-shadow: 0 0 5px #7f9ab5,
     0 0 25px #7f9ab5, 0 0 50px #7f9ab5,
     0 0 100px #7f9ab5;
 }
+
 .contact span{
     color:blue;
     text-shadow: 0 0 5px #7f9ab5,
@@ -346,36 +404,128 @@ body {
     text-shadow: 0 0 5px #7f9ab5,
     0 0 25px #7f9ab5, 0 0 50px #7f9ab5,
     0 0 100px #7f9ab5;
-    margin-bottom: 20px;
 }
-.contact-detail {
-    padding: 16px;
+
+.contact form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem auto;
+    text-align: center;
+}
+.contact form .input-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+
+}
+.contact form .input-box input,
+.contact form textarea{
     width: 100%;
+    padding: 1rem;
+    font-size: 20px;
+    color: white;
+    background: black;
+    border-radius: 2rem;
+    border: 2px solid white;
+    margin: 1rem 0;
+    resize: none;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.contact form .btn{
+margin-top: 2rem;
+}
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 0;
+    background-color: black;
+}
+.footer .sign{
+    text-align: center;  
+}
+.footer .sign a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid cyan;
+    border-radius: 50%;
+    font-size: 20px;
+    color: cyan;
+    text-decoration: none;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    margin: 30px 15px 30px 0;
+}
 
-
-}
-.name[type="text"]{
-    padding-bottom: 30px;
-    width: 50%;
-    margin-bottom: 20px;
-}
-.email[type="text"]{
-    padding-bottom: 30px;
-    width: 50%;
-    margin-bottom: 20px;
-    
-}
-.subject[type="text"]{
-    padding-bottom: 30px;
-    width: 50%;
-    margin-bottom: 20px;
-}
-.message[type="text"]{
-    padding-bottom: 50px;
-    width: 50%;
-    margin-bottom: 20px;
+.footer .sign a:hover {
+    background: cyan;
+    color: blue;
+    box-shadow: 0 0 20px cyan;
 }
 
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+}
+.footer .social a{
+    font-size: 25px;
+    color: #00356B;
+    border: 2px solid blue;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease-in-out;
+}
+.footer .social a:hover{
+    transform: scale (1.2) translateY(-10px);
+    background-color: blue;
+    color: blue;
+    box-shadow: 0 0 25px cyan;
+
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.footer ul li a {
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+.footer ul li a:hover{
+    border-bottom: 3px solid white;
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer .copyright{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
  
 
 
@@ -424,5 +574,57 @@ body {
     100% {
         transform: translateY(0px);
         opacity: 1;
+    }
+}
+
+@media(max-width:895px){
+    #menu-icon{
+        display:block;
+    }
+    .navbar{
+        position: absolute;
+        top:100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: black;
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 2rem; 
+        border-left: 2px solid cyan ;
+        border-bottom: 2px solid cyan;
+        display: none;
+    }
+    .navbar.active{
+        display:block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
+    }
+    .home{
+        flex-direction: column-reverse;
+        margin: 5rem 4rem;
+    }
+    .home-content h3{
+        font-size: 2rem;
+    }
+    .home-content h1{
+        font-size: 8rem;
+        margin-top: 2rem;
+    }
+    .home-content p{
+        max-width:600px;
+        margin: 0 auto;
+    }
+    .home-img img{
+        width:56vw;
+    }
+    .services h2{
+        margin-bottom: 3rem;
+    }
+    .service-container{
+        grid-template-columns: repeat(1, 1fr);
     }
 }
