@@ -8,6 +8,41 @@
 body {
     color: #ededed;
     background-color:#00356B;
+    cursor: pointer;
+}
+
+.cursor{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .1s;
+}
+
+.cursor2{
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: .15s;
+}
+content:hover ~ .cursor{
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: black;
+    opacity: .5;
+}
+content:hover ~ .cursor{
+    opacity: 0;
 }
 
 .header {
@@ -59,8 +94,11 @@ body {
 } 
 #menu-icon{
     font-size: 2rem;
-    color: cyan;
+    color: white;
     display: none;
+    text-shadow: 0 0 5px black,
+    0 0 25px black, 0 0 50px black,
+    0 0 100px black;
 }
 
 .home {
@@ -287,6 +325,13 @@ body {
     transition: background 0.5s, transform 0.5s;
     box-shadow: 1px 1px 20px #7f9ab5, 1px 1px 40px #7f9ab5;
 }
+.services-list div:hover{
+    border: 3px solid white;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 5px lightseagreen,
+    0 0 25px lightseagreen, 0 0 50px lightseagreen,
+    0 0 100px lightseagreen, 0 0 200px lightseagreen;
+}
 .services-list div i{
     font-size: 50px;
     margin-bottom: 30px;
@@ -350,10 +395,10 @@ body {
 }
 .test-item{
     min-height: 500px;
-    max-width: 450px;
+    max-width: 300px;
     border-radius: 10px;
-    margin: 0 2rem;
-    padding: 20px 60px;
+    margin: 1rem;
+    padding: 10px 30px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -404,6 +449,7 @@ body {
     text-shadow: 0 0 5px #7f9ab5,
     0 0 25px #7f9ab5, 0 0 50px #7f9ab5,
     0 0 100px #7f9ab5;
+    text-align: center;
 }
 
 .contact form{
@@ -599,8 +645,8 @@ margin-top: 2rem;
     }
     .navbar a{
         display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
+        font-size: 1rem;
+        margin: 2rem 0;
         color: white;
     }
     .home{
