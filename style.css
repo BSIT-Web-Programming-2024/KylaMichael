@@ -104,7 +104,6 @@ content:hover ~ .cursor{
 .home {
     position: relative;
     width: 100%;
-    justify-content: space-between;
     height: 100vh;
     background: #00356B;
     display: flex;
@@ -114,11 +113,13 @@ content:hover ~ .cursor{
 
 .img-box img {
     border-radius: 50%;
-    width: 400px;
+    width: 600px;
     border-style: dotted;
     box-shadow: 0 0 5px lightseagreen,
         0 0 25px lightseagreen, 0 0 50px lightseagreen,
         0 0 100px lightseagreen;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .7s;
 }
 
 .home-content {
@@ -134,7 +135,7 @@ content:hover ~ .cursor{
 }
 
 .home-content h3:nth-of-type(2) {
-    margin-bottom: 30px;
+    margin: 20px;
     animation: slideTop 1s ease forwards;
     animation-delay: .7s;
 }
@@ -143,11 +144,10 @@ content:hover ~ .cursor{
     color: lightblue;
     text-shadow: 0 0 5px lightseagreen,
         0 0 25px lightseagreen;
-
 }
 
 .home-content h1 {
-    font-size: 56px;
+    font-size: 50px;
     font-weight: 700;
     margin: -3px 0;
     opacity: 0;
@@ -421,11 +421,114 @@ content:hover ~ .cursor{
     0 0 25px lightseagreen, 0 0 50px lightseagreen,
     0 0 100px lightseagreen, 0 0 200px lightseagreen;
 }
-
 #star{
     font-size: 2rem;
 }
 
+h3{
+    text-align: center;
+    margin-bottom: .5rem;
+    margin-top: 8rem;
+}
+.addtest{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 3rem auto;
+    
+}
+.wrapper1{
+    display: flex;
+    align-items: center;
+    max-width: 576px;
+    width: 100%;
+    border-radius: 75rem;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+
+.ratings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 5rem;
+    font-size: 3rem;
+    color: yellow;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.ratings .star{
+    cursor: pointer;
+}
+
+.ratings .star .active{
+    opacity: 0;
+    animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.ratings .star:hover{
+    transform: scale(1.1);
+}
+textarea{
+width: 100%;
+background: black;
+color: white;
+padding: 1rem;
+border-radius: .5rem;
+align-items: center;
+justify-content: center;
+border: none;
+outline: none;
+resize: none;
+font-size: 20px;
+border: 3px solid white;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 5px lightseagreen,
+    0 0 25px lightseagreen, 0 0 50px lightseagreen,
+    0 0 100px lightseagreen, 0 0 200px lightseagreen;
+}
+textarea:hover{
+    border: 3px solid white;
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 5px lightseagreen,
+    0 0 25px lightseagreen, 0 0 50px lightseagreen,
+    0 0 100px lightseagreen, 0 0 200px lightseagreen;
+}
+.btn-group .btn.cancel{
+    display: inline-block;
+    padding: 12px 28px;
+    background: red;
+    border-radius: 40px;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+.btn-group .btn.cancel:hover {
+    box-shadow: 0 0 5px lightseagreen,
+        0 0 25px rgb(240, 56, 65), 0 0 50px rgb(240, 56, 65),
+        0 0 100px rgb(240, 56, 65), 0 0 200px rgb(240, 56, 65);
+}
 .contact{
     padding: 64px;  
 }
