@@ -41,3 +41,28 @@ document.addEventListener("mousemove",function(e){
     cursor.style.cssText = cursor2.style.cssText ="left: " + e.clientX
     + "px; top: " + e.clientY + "px;";
 });
+
+//Testimonial Stars
+const allStar = document.querySelectorAll('.ratings .star')
+const ratingsValue =document.querySelector('.ratings input')
+
+allStar .forEach((item, idx)=> {
+    item.addEventListener('click', function () {
+        let click= 0
+        ratingsValue.value = idx +1
+        console.log(ratingsValue.value)
+        allStar.forEach (i=> {
+            i.classList.replace('bxs-star', 'bx-star')
+            i.classList.add('active')
+        })
+        for(let i=0; i<allStar.length; i++) {
+            if (i <= idx) {
+                allStar[i].classList.replace('bx-star', 'bxs-star')
+                allStar[i].classList.add('active')
+            } else{
+                allStar[i].style.setProperty('--1', click)
+                click++
+            }
+        }
+    })
+})
