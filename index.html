@@ -77,7 +77,7 @@
                             digital images. It's my service to 
                             showcase business or products in the 
                             best light. </p>
-                            <a href="ser.html" class="read">View Projects</a>
+                            <a href="first.pdf" class="read">View Projects</a>
                     </div>
                     <div>
                         <i class='bx bxl-sketch' style='color:#04f3f0' ></i>
@@ -89,14 +89,14 @@
                             assisting with meals, personal care and transportation,
                             and others.
                         </p>
-                            <a href="ser.html" class="read">View Projects</a>
+                            <a href="first.pdf" class="read">View Projects</a>
                     </div>
                     <div>
                         <i class='bx bx-camera-movie' style='color:#04f3f0'></i>
                         <h2>Animation</h2>
                         <p>I create a simulated movement generated  
                             series of pictures in a sequence.</p>
-                            <a href="ser.html" class="read">View Projects</a>
+                            <a href="first.pdf" class="read">View Projects</a>
                     </div>
                     <div>
                         <i class='bx bxs-copy' style='color:#04f3f0'  ></i>
@@ -183,48 +183,25 @@
             </div>
     </section>
 
-    <section class="addtest" id="addtest">
-        <div class="wrapper1">
-            <form action="#">
-                <div class="ratings">
-                    <input type="number" name="rating" hidden>
-                    <i class='bx bx-star star' style="--i: 0;"></i>
-                    <i class='bx bx-star star' style="--i: 1;"></i>
-                    <i class='bx bx-star star' style="--i: 2;"></i>
-                    <i class='bx bx-star star' style="--i: 3;"></i>
-                    <i class='bx bx-star star' style="--i: 4;"></i>
-                </div>
-                <textarea name="opinion" cols="30" rows="5" placeholder="Add Your Testimonial"></textarea>
-                <div class="btn-group">
-                    <button type="submit" class="btn submit"> Submit</button>
-                    <button class="btn cancel"> Cancel</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-
     <section class="contact" id="contact">
         <h2 class="sub-title">Contact<span> Me</span></h2>
        
         <h4> Let's work together. </h4>
         
-        <form action="/action_page.php" target="_blank">
+        <form action="connect.php" method="post">
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Full Name" name="name" required>
+                    <input type="email" placeholder="Email" name="email" required>
                 </div>
                 <div class="input-box">
-                    <input type="num" placeholder="Phone Number">
-                    <input type="text" placeholder="Subject">
+                    <input type="tel" placeholder="Phone Number" name="number" required>
+                    <input type="text" placeholder="Subject" name="subject" required>
                 </div>
             </div>
             <div class="input-group-2">
-                <textarea name="" id="" cols="30"
-                rows="10" placeholder="Your Message"></textarea>
+                <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <input type="submit" value="Send Message" class="btn">
-
             </div>
         </form>
     </section>
