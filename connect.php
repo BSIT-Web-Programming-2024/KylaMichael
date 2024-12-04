@@ -1,45 +1,47 @@
 <?php
-require_once 'config/database.php';
+// Database credentials
+$servername = "localhost"; // Change this if your database server is different
+$username = "root"; // Database username
+$password = ""; // Database password
+$dbname = "contact"; // Database name
 
-// Function to sanitize input data
-function sanitizeInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get and sanitize form data
-    $name = sanitizeInput($_POST['name']);
-    $email = sanitizeInput($_POST['email']);
-    $phone = sanitizeInput($_POST['number']);
-    $subject = sanitizeInput($_POST['subject']);
-    $message = sanitizeInput($_POST['message']);
-    
-    // Get database connection
-    $conn = getConnection();
-    
-    // Prepare SQL statement to prevent SQL injection
-    $sql = "INSERT INTO buroti(ID, name, email, number, subject, message) VALUES ('[value-1]',$name, $email, $phone, $subject, $message)";
-            
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $name, $email, $phone, $subject, $message);
-    
-    // Execute the statement and check if successful
-    if ($stmt->execute()) {
-        echo "<script>
-                alert('Message sent successfully!');
-                window.location.href = 'index.html';
-              </script>";
+// Check if the form is submitted
+if (isset($_POST['submit'])) {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $number = $_POST['number'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    // Basic validation (you can expand this as needed)
+    if (!empty($name) && !empty($number) && !empty($subject) && !empty($message)&& !empty($message) ) {
+        // Prepare and bind
+        $stmt = $conn->prepare("INSERT INTO kyle (name, email, number, subject, message) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sss", $name, $email, $number, $subject, $message);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            echo "Thank you for your message!";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        // Close the prepared statement
+        $stmt->close();
     } else {
-        echo "<script>
-                alert('Error: " . $stmt->error . "');
-                window.location.href = 'index.html';
-              </script>";
+        echo "All fields are required!";
     }
-    
-    // Close statement and connection
-    $stmt->close();
-    $conn->close();
 }
+
+// Close connection
+$conn->close();
+?>
