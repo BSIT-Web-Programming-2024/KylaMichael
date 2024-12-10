@@ -1,11 +1,11 @@
 <?php
-// Database credentials
-$servername = "localhost"; // Change this if your database server is different
-$username = "root"; // Database username
-$password = ""; // Database password
-$dbname = "contact"; // Database name
+// Step 1: Connect to the Database
+$servername = "localhost";  // Your database server (usually localhost)
+$username = "root";         // Your database username
+$password = "";             // Your database password (leave empty for local XAMPP)
+$dbname = "portfolio";      // Your database name
 
-// Create connection
+// Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
@@ -13,8 +13,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form is submitted
-if (isset($_POST['submit'])) {
+// Step 2: Handle Form Data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -22,26 +22,17 @@ if (isset($_POST['submit'])) {
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
-    // Basic validation (you can expand this as needed)
-    if (!empty($name) && !empty($number) && !empty($subject) && !empty($message)&& !empty($message) ) {
-        // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO kyle (name, email, number, subject, message) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sss", $name, $email, $number, $subject, $message);
+    // Step 3: Insert data into the database
+    $sql = "INSERT INTO contacts (name, email, number, subject, message) 
+            VALUES ('$name', '$email', '$number', '$subject', '$message')";
 
-        // Execute the query
-        if ($stmt->execute()) {
-            echo "Thank you for your message!";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        // Close the prepared statement
-        $stmt->close();
+    if ($conn->query($sql) === TRUE) {
+        echo "Message sent successfully!";
     } else {
-        echo "All fields are required!";
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
-}
 
-// Close connection
-$conn->close();
+    // Close the connection
+    $conn->close();
+}
 ?>
